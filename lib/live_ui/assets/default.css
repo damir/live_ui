@@ -1,0 +1,24 @@
+a {
+  @apply text-sky-600;
+}
+
+.pc-text-input {
+  font-size: 1rem;
+  line-height: 1.25rem;
+}
+
+.pc-label {
+  @apply mb-1;
+}
+
+.pc-button--disabled {
+  cursor: default;
+}
+
+/* th:first-child,
+td:first-child {
+  position: sticky;
+  left: 0;
+  z-index: 100;
+  background-color: inherit;
+} */

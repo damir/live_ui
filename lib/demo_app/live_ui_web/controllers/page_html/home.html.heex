@@ -1,0 +1,43 @@
+<div class="px-12 py-4 flex flex-wrap items-center gap-2">
+  <a href="/"><img src={~p"/images/logo.svg"} width="36" /></a>
+  <p class="text-brand font-semibold">Phoenix Framework</p>
+  <p class="px-2 bg-brand/5 text-brand rounded-full font-medium leading-6">
+    v<%= Application.spec(:phoenix, :vsn) %>
+  </p>
+</div>
+
+<div class="px-24 sm:px-6 lg:px-24">
+  <div class="mx-auto max-w-xl lg:mx-0">
+    <.h3 class="my-8 flex flex-wrap items-center gap-2">
+      LiveUI demo
+      <p class="bg-gray-200/20 rounded-full px-2 text-sm font-medium leading-6">
+        v<%= Application.spec(:live_ui, :vsn) %>
+      </p>
+    </.h3>
+
+    <div class="flex flex-wrap items-start gap-24">
+      <div>
+        <.h4>Admin pages</.h4>
+
+        <.ul class="list-inside list-disc space-y-3">
+          <li><.link href={~p"/admin/companies"}>Companies</.link></li>
+          <li><.link href={~p"/admin/contacts"}>Contacts</.link></li>
+          <li><.link href={~p"/admin/departments"}>Departments</.link></li>
+          <li><.link href={~p"/admin/products"}>Products</.link></li>
+          <li><.link href={~p"/admin/sessions"}>Sessions</.link></li>
+          <li><.link href={~p"/admin/users"}>Users</.link></li>
+        </.ul>
+      </div>
+
+      <div>
+        <.h4>Member pages</.h4>
+
+        <.ul class="list-inside list-disc">
+          <li><.link href={~p"/member/contacts"}>Contacts</.link></li>
+        </.ul>
+      </div>
+    </div>
+  </div>
+
+  <.p class="mt-16 text-xs text-right">Special thanks to Jaja ❤️</.p>
+</div>

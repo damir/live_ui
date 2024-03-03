@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" style="scrollbar-gutter: stable;">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="csrf-token" content={get_csrf_token()} />
+    <.live_title suffix=" · LiveUI">
+      <%= assigns[:page_title] || "LiveUI" %>
+    </.live_title>
+    <link phx-track-static rel="stylesheet" href={~p"/assets/app.css"} />
+    <script defer phx-track-static type="text/javascript" src={~p"/assets/app.js"}>
+    </script>
+    <LiveUI.Components.Core.color_scheme_switch_js />
+  </head>
+  <body class="bg-amber-50 dark:bg-gray-900 antialiased">
+    <LiveUI.Components.Core.ul class="py-4 px-4 sm:px-6 lg:px-8 list-none	relative z-10 flex flex-wrap items-center gap-4 justify-end">
+      <%= if @current_user do %>
+        <li><%= @current_user.email %></li>
+        <.link navigate={~p"/member/contacts"}>My contacts</.link>
+        <.link navigate={~p"/users/settings"}>Settings</.link>
+        <li><.link href={~p"/users/log_out"} method="delete">Log out</.link></li>
+      <% else %>
+        <li><.link navigate={~p"/users/register"}>Register</.link></li>
+        <li><.link navigate={~p"/users/log_in"}>Log in</.link></li>
+      <% end %>
+
+      <li class="-mt-2 h-8 -ml-2 w-8"><LiveUI.Components.Core.color_scheme_switch /></li>
+    </LiveUI.Components.Core.ul>
+    <.flash_group flash={@flash} />
+    <%= @inner_content %>
+  </body>
+</html>

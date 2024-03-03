@@ -1,0 +1,24 @@
+<header :if={@current_user} class="px-4 sm:px-6 lg:px-8">
+  <div class="px-4 py-4 flex flex-wrap items-center shadow-[0px_3px_8px_0px_#00000016] rounded-lg dark:bg-gray-800 dark:border dark:border-gray-700">
+    <a href="/"><img src={~p"/images/logo.svg"} width="36" /></a>
+    <p class="px-2 mx-2 bg-brand/5 text-brand rounded-full font-medium leading-6">
+      v<%= Application.spec(:phoenix, :vsn) %>
+    </p>
+
+    <div class="flex flex-wrap items-center gap-4 font-semibold leading-6 text-zinc-900">
+      <.link navigate={~p"/admin/companies"}>Companies</.link>
+      <.link navigate={~p"/admin/contacts"}>Contacts</.link>
+      <.link navigate={~p"/admin/departments"}>Departments</.link>
+      <.link navigate={~p"/admin/products"}>Products</.link>
+      <.link navigate={~p"/admin/sessions"}>Sessions</.link>
+      <.link navigate={~p"/admin/users"}>Users</.link>
+    </div>
+  </div>
+</header>
+
+<main class="px-4 py-6 sm:px-6 lg:px-8">
+  <div class="mx-auto">
+    <.flash_group flash={@flash} />
+    <%= @inner_content %>
+  </div>
+</main>
